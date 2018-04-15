@@ -1,21 +1,30 @@
 <idea-plugin>
     <id>me.fingerart.idea.apidebugger</id>
     <name>Api Debugger</name>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
     <vendor email="george@chengguo.io" url="http://fingerart.me">FingerArt</vendor>
 
     <description><![CDATA[
         <p>A plugin to help you easily complete the API debugging.</p><br/>
 
-        <p>Like this plugin? <b>Give it a star</b> at <a href="https://github.com/fingerart/ApiDebugger">GitHub</a> and spread the word!</p>
+        <p>Like this plugin? <b>Give it a star</b> at <a href="https://github.com/fingerart/ApiDebugger">GitHub</a> and spread the word!</p><br/>
+
+        <img src="https://github.com/FingerArt/ApiDebugger/blob/master/screenshot/v2.0.2.gif?raw=true" alt="https://github.com/fingerart/ApiDebugger">
     ]]></description>
 
     <change-notes><![CDATA[
+        <b>v2.0.2</b>
+        <ul>
+            <li>Save tab state;</li>
+            <li>Adjust UI;</li>
+        </ul>
+
         <b>v2.0.1 Upgrade:</b>
         <ul>
             <li>Support HTTPS;</li>
             <li>Fix POST error;</li>
-            </ul>
+        </ul>
+
         <b>v2.0.0 Upgrade:</b>
         <ul>
             <li>Add DELETE、PUT、PATCH、OPTIONS、HEAD、TRANCE method; </li>
@@ -23,6 +32,7 @@
             <li>Optimize message hint;</li>
             <li>Add format friendly data display(json/xml/html).</li>
         </ul>
+
         <b>v1.0.0 Add:</b>
         <ul>
             <li>Support GET、POST method;</li>

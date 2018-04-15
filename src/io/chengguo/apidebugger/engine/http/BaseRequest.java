@@ -1,6 +1,5 @@
 package io.chengguo.apidebugger.engine.http;
 
-import com.intellij.util.net.ssl.CertificateUtil;
 import io.chengguo.apidebugger.engine.interf.ArtHttpListener;
 import io.chengguo.apidebugger.engine.utils.CertificateUtils;
 import io.chengguo.apidebugger.engine.utils.CommonUtil;
@@ -8,24 +7,13 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
 import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

@@ -46,6 +46,11 @@ public class DebuggerComponent extends AbstractProjectComponent {
         return project.getComponent(DebuggerComponent.class);
     }
 
+    /**
+     * 初始化
+     *
+     * @param toolWindow
+     */
     public void initApiDebugger(ToolWindow toolWindow) {
         Content content = createApiDebuggerContentPanel(toolWindow);
         content.setCloseable(true);
@@ -53,6 +58,11 @@ public class DebuggerComponent extends AbstractProjectComponent {
         ((ToolWindowManagerEx) ToolWindowManager.getInstance(mProject)).addToolWindowManagerListener(createToolWindowListener());
     }
 
+    /**
+     * 监听`ToolWindow`的状态，以便在必要时重新进行初始化
+     *
+     * @return
+     */
     private ToolWindowManagerListener createToolWindowListener() {
         return new ToolWindowManagerListener() {
             @Override
@@ -73,6 +83,12 @@ public class DebuggerComponent extends AbstractProjectComponent {
         };
     }
 
+    /**
+     * ApiDebugger的整体内容面板
+     *
+     * @param toolWindow
+     * @return
+     */
     private Content createApiDebuggerContentPanel(ToolWindow toolWindow) {
         toolWindow.setToHideOnEmptyContent(true);
 
@@ -88,25 +104,41 @@ public class DebuggerComponent extends AbstractProjectComponent {
         return content;
     }
 
+    /**
+     * 工具栏
+     *
+     * @param debuggerWidget
+     * @return
+     */
     private ActionToolbar createToolBar(ITabbedDebuggerWidget debuggerWidget) {
         DefaultActionGroup group = new DefaultActionGroup();
         group.addAll(
                 new AddTabAction(debuggerWidget),
-                new CloseTabAction(debuggerWidget)
-//                new SettingsTabAction()
+                new CloseTabAction(debuggerWidget),
+                new SettingsTabAction()
         );
         ActionToolbar toolbar = ActionManager.getInstance().createActionToolbar(ActionPlaces.UNKNOWN, group, false);
         toolbar.setOrientation(SwingConstants.VERTICAL);
         return toolbar;
     }
 
+    /**
+     * ApiDebuger的主要内容面板
+     *
+     * @param content
+     * @return
+     */
     private ITabbedDebuggerWidget createContent(Content content) {
         ITabbedDebuggerWidget debuggerWidget = new TabbedDebuggerWidget(mProject, content);
         debuggerWidget.createDebuggerSession();
-
         return debuggerWidget;
     }
 
+    /**
+     * 接受`NoActionSessionsEvent`事件，移除掉窗口中的内容
+     *
+     * @param event
+     */
     @Subscribe
     public void onNoActiveSessions(NoActionSessionsEvent event) {
         Log.d("DebuggerComponent.onNoActionSessions");

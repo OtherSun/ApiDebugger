@@ -14,7 +14,6 @@ public class DebuggerToolWindowFactory implements ToolWindowFactory {
 
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
-        DebuggerComponent apiDebuggerView = DebuggerComponent.getInstance(project);
-        apiDebuggerView.initApiDebugger(toolWindow);
+        DebuggerComponent.getInstance(project).initApiDebugger(toolWindow);
     }
 }

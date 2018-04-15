@@ -12,7 +12,7 @@ public class CloseTabAction extends AnAction {
     private ITabbedDebuggerWidget mDebuggerWidget;
 
     public CloseTabAction(ITabbedDebuggerWidget debuggerWidget) {
-        super("Close Tab", "Close ApiDebugger Session", AllIcons.Actions.Delete);
+        super("Close Tab", "Close Current ApiDebugger Session", AllIcons.Actions.Delete);
         mDebuggerWidget = debuggerWidget;
     }
 
